@@ -191,7 +191,7 @@ install_prerequisties ()
 get_astpp_source ()
 {
         cd /opt
-        git clone -b v5.0 https://github.com/iNextrix/ASTPP.git
+        git clone -b v5.0 https://github.com/TalkTelecomSolutions/ASTPP.git
 }
 
 #License Acceptence
@@ -209,7 +209,7 @@ license_accept ()
                 if [ -f LICENSE ]; then
                         more LICENSE
                 else
-                        wget --no-check-certificate -q -O GNU-AGPLv5.0.txt https://raw.githubusercontent.com/iNextrix/ASTPP/master/LICENSE
+                        wget --no-check-certificate -q -O GNU-AGPLv5.0.txt https://raw.githubusercontent.com/TalkTelecomSolutions/ASTPP/v5.0/README.md
                         more GNU-AGPLv5.0.txt
                 fi
                 echo "***"
@@ -362,8 +362,6 @@ get_user_response ()
         # read -p "Enter your freeswitch token: ${FS_TOKEN}"
         # FS_TOKEN=${REPLY}
         # echo ""
-        read -p "Enter your email address: ${EMAIL}"
-        EMAIL=${REPLY}
         echo ""
         read -n 1 -p "Press any key to continue ... "
         NAT1=$(dig +short myip.opendns.com @resolver1.opendns.com)
@@ -373,7 +371,6 @@ get_user_response ()
                 echo "Server is behind NAT";
                 NAT="True"
         fi
-        curl --data "email=$EMAIL" --data "data=$NAT2" --data "type=Install" https://astppbilling.org/lib/
 }
 
 #Install ASTPP with dependencies
